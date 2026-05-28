@@ -16,38 +16,46 @@ export async function POST(req: NextRequest) {
 
 Scale Army places full-time offshore talent (from Latin America, Eastern Europe, South Africa, Middle East) for marketing, sales, admin, and tech roles. Examples: graphic designers, video editors, paid media buyers, social media managers, e-comm managers, copywriters, VAs, project managers, full stack engineers, SDRs, BDRs, customer care reps, supply chain specialists. Month-to-month contracts, no placement fees, $599 deposit per role (early bird: $299 for 1 role, $399 for 3 roles). 14-day onboarding timeline. Scale Army handles all sourcing, vetting, payroll, compliance, and paperwork as employer of record.
 
+SCORING RULES — STRICTLY FOLLOW THESE. NO EXCEPTIONS:
+- Rapport & Needs Discovery: 1pt if all 3 items met, 0.5pt if exactly 2/3 met, 0pt if 1 or fewer met
+- Pitch: 1pt if all 4 items met, 0.5pt if exactly 3/4 met, 0pt if 2 or fewer met
+- Budget Acknowledgment: 1pt (Met) or 0pt (Not Met) ONLY. NEVER 0.5.
+- Objection Handling: 1pt (Met) or 0pt (Not Met) ONLY. NEVER 0.5.
+- CTA & Timing: 1pt (Met), 0pt (Not Met), or N/A if SQL=No. NEVER 0.5.
+
 SCORING RUBRIC — evaluate the AE (the Scale Army salesperson, not the client):
 
 1. RAPPORT & NEEDS DISCOVERY — 3 checklist items (order does not matter, can happen anywhere before close):
    - Rapport & context: Did AE open warmly, make small talk, create comfortable tone, and uncover context from the client?
    - Hiring need & role probing: Did AE uncover the hiring need, ask good probing questions on the role/scope, and confirm it is full-time?
    - Timeline probed: Did AE ask when the client is looking to hire or how urgent the need is?
-   Score: 1pt if all 3 met, 0.5pt if 2/3 met, 0pt if 1/3 or fewer met.
+   Points: 1pt if all 3 met, 0.5pt if exactly 2/3 met, 0pt if 1 or fewer met. Status: "Met" if 1pt, "Partial" if 0.5pt, "Not Met" if 0pt.
 
 2. PITCH — 4 checklist items (order does not matter, can happen anywhere before close):
    - Our model explained: GEOs mentioned (Latin America, Eastern Europe, South Africa, Middle East), examples of roles/functions we support, how we source (custom search based on a custom JD aligned together — NOT pulling from a bench)
    - Generic sheet shown & shortlist described: Candidate sheet pulled up on call (the standard graphic designer example is fine and encouraged) AND described what clients receive: top 4-6 candidates, summary notes, years of experience, platforms/tech stack, qualifying questions, app packet (resume + video), portfolio links, country, all-in salary. If AE acknowledged client is off-cam and explained it verbally instead, that also counts.
    - Deck shown on call: AE pulled up and shared the Scale Army deck on the call
    - Engagement terms covered: ALL of the following must be mentioned — month-to-month contract, cancel anytime within first 30 days (trial period), replacement guarantee, 2-4 week timeline, deposit explained, early bird pricing ($299 instead of $599)
-   Score: 1pt if all 4 met, 0.5pt if 3/4 met, 0pt if 2/4 or fewer met.
+   Points: 1pt if all 4 met, 0.5pt if exactly 3/4 met, 0pt if 2 or fewer met. Status: "Met" if 1pt, "Partial" if 0.5pt, "Not Met" if 0pt.
 
-3. BUDGET ACKNOWLEDGMENT — pass/fail:
-   - Met (1pt): AE quoted an expected salary range AND got no pushback from client, OR AE explicitly extracted a max budget from the client
-   - Not Met (0pt): Budget never discussed, or client pushed back on price without resolution
+3. BUDGET ACKNOWLEDGMENT — strict pass/fail ONLY. NEVER 0.5 points:
+   - Met = 1pt: AE quoted an expected salary range AND got no pushback from client, OR AE explicitly extracted a max budget from the client
+   - Not Met = 0pt: Budget never discussed, or client pushed back on price without resolution
+   - points MUST be 0 or 1 only. Never 0.5.
 
-4. OBJECTION HANDLING — pass/fail:
+4. OBJECTION HANDLING — strict pass/fail ONLY. NEVER 0.5 points:
    - IMPORTANT: Only flag GENUINE objections — moments where the client is directly questioning, pushing back on, or expressing hesitation about Scale Army's process, pricing, or value proposition. General business context, budget commentary about their own internal situation, or the client thinking out loud about their own needs = NOT an objection.
-   - Met = 1pt: No genuine objections raised (client was receptive throughout) — this is the DEFAULT when no objections occur. OR all genuine objections were handled well.
+   - Met = 1pt: No genuine objections raised (client was receptive throughout) — this is the DEFAULT when no objections occur. OR all genuine objections were handled well. IMPORTANT: If no genuine objections were raised, points MUST be 1, status MUST be "Met".
    - Not Met = 0pt: ONLY if AE fumbled or ignored a genuine objection raised by the client.
-   - IMPORTANT: If no genuine objections were raised, points MUST be 1, status MUST be "Met".
-   - For each genuine objection: rate as "Solid" or "Room for Improvement" with a reason
+   - points MUST be 0 or 1 only. Never 0.5.
+   - For each genuine objection, capture: the exact question asked, the AE's actual rebuttal/response, the rating ("Solid" or "Room for Improvement"), and the reason for that rating
    - If no genuine objections: items array should be empty [], summary should say "No objections raised — client was receptive throughout"
 
-5. CTA & TIMING — pass/fail/N/A:
-   - N/A if SQL = No (no points counted, excluded from total)
-   - Met Option A (1pt): AE confirmed they are sending JD + proposal/contract + deposit link AND explicitly reiterated the early bird urgency at the close with a specific deadline
-   - Met Option B (1pt): AE booked a follow-up call on the calendar (early bird reiteration not required for this option)
-   - Not Met (0pt): Call ended without either of the above, or links were mentioned but early bird urgency was NOT reinforced at close
+5. CTA & TIMING — strict pass/fail/N/A ONLY. NEVER 0.5 points:
+   - N/A if SQL = No (points = 0, excluded from total, max_score = 4)
+   - Met = 1pt ONLY if: AE confirmed they are sending JD + proposal/contract + deposit link AND explicitly reiterated the early bird urgency at the close with a specific deadline. OR a follow-up call was booked on the calendar.
+   - Not Met = 0pt: anything else. Call ended without either of the above, or links mentioned but early bird not reinforced at close.
+   - points MUST be 0 or 1 only. Never 0.5.
 
 OVERALL SCORE: Sum of all category points. Max is 5 (or 4 if CTA is N/A).
 
@@ -118,7 +126,7 @@ JSON schema:
       "status": "Met" or "Not Met",
       "summary": "1-2 sentence explanation",
       "items": [
-        { "question": "the objection raised", "rating": "Solid" or "Room for Improvement", "reason": "brief reason" }
+        { "question": "the exact objection raised", "rebuttal": "summary of how the AE responded", "rating": "Solid" or "Room for Improvement", "reason": "brief reason for the rating" }
       ]
     },
     "cta": {
