@@ -39,8 +39,13 @@ SCORING RUBRIC — evaluate the AE (the Scale Army salesperson, not the client):
    Points: 1pt if all 4 met, 0.5pt if exactly 3/4 met, 0pt if 2 or fewer met. Status: "Met" if 1pt, "Partial" if 0.5pt, "Not Met" if 0pt.
 
 3. BUDGET ACKNOWLEDGMENT — strict pass/fail ONLY. NEVER 0.5 points:
-   - Met = 1pt: AE quoted an expected salary range AND got no pushback from client, OR AE explicitly extracted a max budget from the client
-   - Not Met = 0pt: Budget never discussed, or client pushed back on price without resolution
+   - Met = 1pt if ANY of the following is true:
+     * AE quoted an expected salary range for the role AND the client did not push back or object to the price — silence or acknowledgment both count as no pushback
+     * AE explicitly asked for and received a max budget figure from the client
+     * AE showed a candidate sheet with salary ranges visible and the client did not object
+   - Not Met = 0pt ONLY if: budget/salary was never discussed at all, OR client explicitly said the price is too high or they cannot afford it
+   - IMPORTANT: Do NOT require the client to explicitly confirm the budget. No pushback = Met.
+   - IMPORTANT: If the AE mentioned any salary range or showed pricing at any point during the call and the client did not object, this is Met.
    - points MUST be 0 or 1 only. Never 0.5.
 
 4. OBJECTION HANDLING — strict pass/fail ONLY. NEVER 0.5 points:
@@ -63,11 +68,11 @@ SQL CRITERIA — SQL = Yes only if ALL of the following are true:
    - Client has a full-time hiring need (not part-time or project-based)
    - Client has a specific role in mind (not just window shopping)
    - Client is looking to hire within the next 30 days
-   - Budget for the role has been acknowledged
+   - Budget for the role has been acknowledged (AE quoted a range with no pushback, OR client provided max budget — no explicit client confirmation required)
    - Client is looking to hire remotely (not onshore US talent or an agency)
 
 DISQUALIFICATION — SQL = No if ANY of the following is true (list the applicable reason(s)):
-   - "Budget" — client acknowledged the budget is too high / can't afford
+   - "Budget" — client explicitly said the price is too high or they cannot afford it
    - "Timing" — client is not looking to hire within 30 days
    - "No FT need" — client is looking for part-time or project-based only
    - "Out of SA Scope" — client wants onshore US talent or an agency
