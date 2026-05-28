@@ -139,7 +139,16 @@ JSON schema:
     }),
   });
 
-  const data = await response.json();
+ const data = await response.json();
+
+  if (!response.ok || !data.content) {
+    return NextResponse.json({ 
+      error: "Anthropic API error", 
+      status: response.status,
+      details: data 
+    }, { status: 500 });
+  }
+
   const raw = data.content.map((b: { text?: string }) => b.text || "").join("");
   const clean = raw.replace(/```json|```/g, "").trim();
 
@@ -149,4 +158,3 @@ JSON schema:
   } catch {
     return NextResponse.json({ error: "Failed to parse response", raw: clean }, { status: 500 });
   }
-}
