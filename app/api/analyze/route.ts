@@ -158,3 +158,4 @@ JSON schema:
   } catch {
     return NextResponse.json({ error: "Failed to parse response", raw: clean }, { status: 500 });
   }
+ }
