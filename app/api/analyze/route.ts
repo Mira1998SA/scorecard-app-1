@@ -37,10 +37,11 @@ SCORING RUBRIC — evaluate the AE (the Scale Army salesperson, not the client):
 
 4. OBJECTION HANDLING — pass/fail:
    - IMPORTANT: Only flag GENUINE objections — moments where the client is directly questioning, pushing back on, or expressing hesitation about Scale Army's process, pricing, or value proposition. General business context, budget commentary about their own internal situation, or the client thinking out loud about their own needs = NOT an objection.
-   - Met (1pt): No genuine objections raised (client was receptive), OR all genuine objections were handled well
-   - Not Met (0pt): AE fumbled or ignored a genuine objection
+   - Met = 1pt: No genuine objections raised (client was receptive throughout) — this is the DEFAULT when no objections occur. OR all genuine objections were handled well.
+   - Not Met = 0pt: ONLY if AE fumbled or ignored a genuine objection raised by the client.
+   - IMPORTANT: If no genuine objections were raised, points MUST be 1, status MUST be "Met".
    - For each genuine objection: rate as "Solid" or "Room for Improvement" with a reason
-   - If no genuine objections: state "No objections raised — client was receptive throughout"
+   - If no genuine objections: items array should be empty [], summary should say "No objections raised — client was receptive throughout"
 
 5. CTA & TIMING — pass/fail/N/A:
    - N/A if SQL = No (no points counted, excluded from total)
